@@ -1,6 +1,6 @@
 <?php
 
-$serializer = new SuperClosure\Serializer;
+use Laravel\SerializableClosure\SerializableClosure;
 
 return array(
 
@@ -21,7 +21,7 @@ return array(
 	| Theme Default
 	|--------------------------------------------------------------------------
 	|
-	| If you don't set a theme when using a "Theme" class 
+	| If you don't set a theme when using a "Theme" class
 	| the default theme will replace automatically.
 	|
 	*/
@@ -33,7 +33,7 @@ return array(
 	| Layout Default
 	|--------------------------------------------------------------------------
 	|
-	| If you don't set a layout when using a "Theme" class 
+	| If you don't set a layout when using a "Theme" class
 	| the default layout will replace automatically.
 	|
 	*/
@@ -78,13 +78,13 @@ return array(
 	'events' => array(
 
 		// Before all event, this event will effect for global.
-		'before' => $serializer->serialize(function($theme)
+		'before' => serialize(new SerializableClosure(function($theme)
 		{
 			//$theme->setTitle('Something in global.');
-		}),
+		})),
 
 		// This event will fire as a global you can add any assets you want here.
-		'asset' => $serializer->serialize(function($asset)
+		'asset' => serialize(new SerializableClosure(function($asset)
 		{
 			// Preparing asset you need to serve after.
             $asset->cook('backbone', function($asset)
@@ -95,7 +95,7 @@ return array(
 
             // To use cook 'backbone' you can fire with 'serve' method.
             // Theme::asset()->serve('backbone');
-		})
+		}))
 
 	),
 

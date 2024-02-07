@@ -5,7 +5,7 @@ Laravel-Theme is a theme management for Laravel 5.7+ and 6+, it is the easiest w
 This package is based on [teepluss\theme](https://github.com/teepluss/laravel-theme/) and Forked from [facuz\laravel-themes](https://github.com/FaCuZ/laravel-theme) to make it compatible with Laravel 6+.
 
 >##### Differences with teepluss version:
->- Compatible with laravel 5.7+ and 6+.
+>- Compatible with laravel 9+
 >- Removed twig compatibility (Reduces the package by 94%).
 >- Blade directives
 >- Better base template.
